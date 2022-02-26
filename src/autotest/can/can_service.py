@@ -80,7 +80,7 @@ def get_can_box_device(can_box_device: CanBoxDeviceEnum, baud_rate: BaudRateEnum
         raise RuntimeError("No device found, is can box connected")
 
 
-class Can(metaclass=Singleton):
+class CanBus(metaclass=Singleton):
     """
     CAN设备操作的父类，实现CAN的最基本的操作， 如打开、关闭设备, 传输、接收CAN消息，停止传输CAN消息，查看CAN设备打开状态等
     """
@@ -178,7 +178,7 @@ class Can(metaclass=Singleton):
         return self._can.get_stack()
 
 
-class CANService(Can):
+class CanService(CanBus):
     """
     CAN的服务类，主要用于CAN信号的发送，接收等操作。
 
