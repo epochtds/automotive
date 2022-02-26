@@ -13,11 +13,28 @@ import platform
 import os
 import subprocess as sp
 from datetime import datetime, date
+from enum import Enum, unique
 from typing import List, Tuple, Dict
 
 import yaml
 
-from .logger import logger
+from ..logger import logger
+
+
+@unique
+class SystemTypeEnum(Enum):
+    """
+    系统类型
+    """
+    QNX = "qnx"
+    LINUX = "linux"
+
+    @staticmethod
+    def from_value(value: str):
+        for key, item in SystemTypeEnum.__members__.items():
+            if value.upper() == item.value.upper():
+                return item
+        raise ValueError(f"{value} can not be found in {SystemTypeEnum.__name__}")
 
 
 def convert_datetime_string(date_time: datetime, fmt: str = '%Y%m%d_%H%M%S') -> str:

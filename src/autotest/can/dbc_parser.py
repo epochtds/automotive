@@ -11,7 +11,7 @@ import json
 import re
 from typing import List, Dict, Any
 
-from automotive.logger.logger import logger
+from ..logger import logger
 
 
 class DbcParser(object):
