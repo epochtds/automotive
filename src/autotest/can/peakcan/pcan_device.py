@@ -7,15 +7,15 @@
 # @Created:     2022/02/19 - 22:24
 # --------------------------------------------------------
 # 导入所需模块
+import pcan_basic
 from inspect import stack
 from ctypes import memmove, c_uint
 from typing import List, Any, Tuple
 
-from . import pcan_basic
-from ..logger import logger
-from .abstract_class import BaseCanDevice, BaudRateEnum
-from ..checker import check_connect, can_tips
-from .message import Message
+from autotest.logger import logger
+from autotest.checker import check_connect, can_tips
+from ..abstract_class import BaseCanDevice, BaudRateEnum
+from ..message import Message
 
 baud_rate_list = {
     #   波特率

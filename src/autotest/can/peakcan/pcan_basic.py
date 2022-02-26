@@ -22,7 +22,7 @@
 import os
 import platform
 from ctypes import *
-from ..logger import logger
+from autotest.logger import logger
 
 # ///////////////////////////////////////////////////////////
 # Type definitions
@@ -366,11 +366,11 @@ class PCANBasic:
         #
         if platform.system() == 'Windows':
             if platform.architecture()[0] == '64bit':
-                dll = os.path.split(os.path.realpath(__file__))[0] + r"\peakcan\x64\PCANBasic.dll"
+                dll = os.path.split(os.path.realpath(__file__))[0] + r"\x64\PCANBasic.dll"
                 logger.debug(f"use x64 dll {dll}")
                 self.__m_dllBasic = windll.LoadLibrary(dll)
             elif platform.architecture()[0] == '32bit':
-                dll = os.path.split(os.path.realpath(__file__))[0] + r"\peakcan\x86\\PCANBasic.dll"
+                dll = os.path.split(os.path.realpath(__file__))[0] + r"\x86\PCANBasic.dll"
                 logger.debug(f"use x86 dll {dll}")
                 self.__m_dllBasic = windll.LoadLibrary(dll)
             else:

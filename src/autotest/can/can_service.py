@@ -24,22 +24,22 @@ def __get_can_bus(can_box_device: CanBoxDeviceEnum, baud_rate: BaudRateEnum, dat
                   channel_index: int, can_fd: bool, max_workers: int) -> BaseCanBus:
     if can_box_device == CanBoxDeviceEnum.PEAKCAN:
         logger.debug("use pcan")
-        from .pcan_bus import PCanBus
+        from autotest.can.peakcan.pcan_bus import PCanBus
         return PCanBus(baud_rate=baud_rate, data_rate=data_rate, channel_index=channel_index, can_fd=can_fd,
                        max_workers=max_workers)
     elif can_box_device == CanBoxDeviceEnum.TSMASTER:
         logger.debug("use tsmaster")
-        from .tsmaster_bus import TsMasterCanBus
+        from autotest.can.tsmaster.tsmaster_bus import TsMasterCanBus
         return TsMasterCanBus(baud_rate=baud_rate, data_rate=data_rate, channel_index=channel_index, can_fd=can_fd,
                               max_workers=max_workers)
     elif can_box_device == CanBoxDeviceEnum.ZLGUSBCAN:
         logger.debug("use zlg")
-        from .zlg_bus import ZlgCanBus
+        from autotest.can.zlg.zlg_bus import ZlgCanBus
         return ZlgCanBus(baud_rate=baud_rate, data_rate=data_rate, channel_index=channel_index, can_fd=can_fd,
                          max_workers=max_workers)
     elif can_box_device == CanBoxDeviceEnum.CANALYST or can_box_device == CanBoxDeviceEnum.USBCAN:
         logger.debug("use usbcan")
-        from .usbcan_bus import UsbCanBus
+        from autotest.can.usbcan.usbcan_bus import UsbCanBus
         return UsbCanBus(can_box_device, baud_rate=baud_rate, data_rate=data_rate, channel_index=channel_index,
                          can_fd=can_fd, max_workers=max_workers)
     else:

@@ -7,10 +7,10 @@
 # @Created:     2022/02/19 - 22:51
 # --------------------------------------------------------
 from time import sleep
-from ..logger import logger
+from autotest.logger import logger
 from .usbcan_device import UsbCanDevice
-from .abstract_class import BaudRateEnum, CanBoxDeviceEnum, BaseCanBus
-from .message import Message
+from ..abstract_class import BaudRateEnum, CanBoxDeviceEnum, BaseCanBus
+from ..message import Message
 
 
 class UsbCanBus(BaseCanBus):

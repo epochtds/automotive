@@ -93,9 +93,9 @@ class TLibCAN(Structure):
 # 						   // [0] dir: 0-RX, 1-TX
 # 	u8 FDLC;              // dlc from 0 to 15                     = CAN
 # 	TCANFDProperty FFDProperties;      // [7-3] tbd                            <> CAN
-# 						   // [2] ESI, The E RROR S TATE I NDICATOR (ESI) flag is transmitted dominant by error active nodes, recessive by error passive nodes. ESI does not exist in CAN format frames
+# 						   // [2] ESI, The ERROR STATE INDICATOR (ESI) flag is transmitted dominant by error active nodes, recessive by error passive nodes. ESI does not exist in CAN format frames
 # 						   // [1] BRS, If the bit is transmitted recessive, the bit rate is switched from the standard bit rate of the A RBITRATION P HASE to the preconfigured alternate bit rate of the D ATA P HASE . If it is transmitted dominant, the bit rate is not switched. BRS does not exist in CAN format frames.
-# 						   // [0] EDL: 0-normal CAN frame, 1-FD frame, added 2020-02-12, The E XTENDED D ATA L ENGTH (EDL) bit is recessive. It only exists in CAN FD format frames
+# 						   // [0] EDL: 0-normal CAN frame, 1-FD frame, added 2020-02-12, The EXTENDED D ATA LENGTH (EDL) bit is recessive. It only exists in CAN FD format frames
 # 	s32  FIdentifier;      // CAN identifier                       = CAN
 # 	u64 FTimeUS;          // timestamp in us                      = CAN
 #     u8x64 FData;          // 64 data bytes to send                <> CAN

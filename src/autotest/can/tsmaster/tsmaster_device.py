@@ -10,12 +10,12 @@ import os
 import platform
 from ctypes import CDLL, byref, c_size_t, c_int32, c_double, c_ubyte, POINTER, cast, c_int
 from typing import List, Tuple, Any
-from .tsmaster_basic import TRUE, APP_CHANNEL, TLIBCANFDControllerMode, TLIBCANFDControllerType, TLibCAN, TLibCANFD, \
-    FALSE
-from ..checker import tsmaster_control_decorator, check_connect, can_tips
-from .abstract_class import BaseCanDevice, BaudRateEnum
-from ..logger import logger
-from .message import Message
+from autotest.checker import tsmaster_control_decorator, check_connect, can_tips
+from autotest.logger import logger
+from ..abstract_class import BaseCanDevice, BaudRateEnum
+from ..message import Message
+from .tsmaster_basic import TRUE, APP_CHANNEL, TLIBCANFDControllerMode, TLIBCANFDControllerType, TLibCAN, \
+    TLibCANFD, FALSE
 
 
 class TSMasterDevice(BaseCanDevice):
@@ -42,9 +42,9 @@ class TSMasterDevice(BaseCanDevice):
         """
         system_bit = platform.architecture()[0]
         if system_bit == "32bit":
-            dll_path = r'\tsmaster\x86\libTSCAN.dll'
+            dll_path = r'\x86\libTSCAN.dll'
         else:
-            dll_path = r'\tsmaster\x64\libTSCAN.dll'
+            dll_path = r'\x64\libTSCAN.dll'
         abs_dll = os.path.split(os.path.realpath(__file__))[0] + dll_path
         logger.debug(f"use dll {abs_dll}")
         return abs_dll

@@ -7,10 +7,10 @@
 # @Created:     2022/02/19 - 22:51
 # --------------------------------------------------------
 from time import sleep
-from ..logger import logger
+from autotest.logger import logger
 from .pcan_device import PCanDevice
-from .abstract_class import BaseCanBus, BaudRateEnum
-from .message import Message
+from ..abstract_class import BaseCanBus, BaudRateEnum
+from ..message import Message
 
 
 class PCanBus(BaseCanBus):

@@ -11,13 +11,13 @@ import platform
 from ctypes import CDLL, POINTER, CFUNCTYPE, c_uint, c_char_p, byref, c_int
 from typing import Tuple, Any
 
-from ..checker import control_decorator, check_connect, can_tips
+from autotest.logger import logger
+from autotest.checker import control_decorator, check_connect, can_tips
 from .zlg_basic import ZCAN_USBCANFD_200U, ZCAN_TYPE_CANFD, ZCAN_TYPE_CAN, \
     INVALID_DEVICE_HANDLE, IProperty, ZCAN_CHANNEL_INIT_CONFIG, ZCAN_STATUS_OK, ZCAN_DEVICE_INFO, \
     ZCAN_Transmit_Data, ZCAN_TransmitFD_Data, ZCAN_Receive_Data, ZCAN_ReceiveFD_Data, BAUD_RATE, DATA_RATE
-from ..logger import logger
-from .message import Message
-from .abstract_class import BaudRateEnum, BaseCanDevice
+from ..message import Message
+from ..abstract_class import BaudRateEnum, BaseCanDevice
 
 
 class ZlgUsbCanDevice(BaseCanDevice):
@@ -48,9 +48,9 @@ class ZlgUsbCanDevice(BaseCanDevice):
     def __get_dll_path():
         system_bit = platform.architecture()[0]
         if system_bit == "32bit":
-            dll_path = r'\zlg\x86\zlgcan.dll'
+            dll_path = r'\x86\zlgcan.dll'
         else:
-            dll_path = r'\zlg\x64\zlgcan.dll'
+            dll_path = r'\x64\zlgcan.dll'
         return os.path.split(os.path.realpath(__file__))[0] + dll_path
 
     def __set_value(self, iproperty, type_: str, value: str):

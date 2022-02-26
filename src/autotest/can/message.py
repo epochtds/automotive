@@ -349,17 +349,6 @@ class Message(object):
         self.diag_state = False
         # 是否标准can
         self.is_standard_can = None
-        #################################################################################
-        # USB MESSAGE独特的部分
-        self.usb_can_send_type = 1
-        # USB CAN特有的属性
-        self.time_flag = 1
-        # USB CAN特有的属性
-        self.remote_flag = 0
-        # USB CAN特有的属性
-        self.external_flag = 0
-        # 信号保留字
-        self.reserved = None
 
     def __str__(self):
         return f"{hex(self.msg_id)} = {self.data}"
